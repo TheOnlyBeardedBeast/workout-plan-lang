@@ -1,0 +1,205 @@
+[
+  {
+    "type": "exercise",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "pause",
+          "named": true
+        },
+        {
+          "type": "reps",
+          "named": true
+        },
+        {
+          "type": "rest",
+          "named": true
+        },
+        {
+          "type": "sets",
+          "named": true
+        },
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pause",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "floatNumber",
+          "named": true
+        },
+        {
+          "type": "timeUnit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "reps",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "rest",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "floatNumber",
+          "named": true
+        },
+        {
+          "type": "timeUnit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "sets",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "workoutPlanDefinition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "title",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "stringParam",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "workoutDefinition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exercise",
+          "named": true
+        },
+        {
+          "type": "title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "workoutPlanDefinition",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "title",
+          "named": true
+        },
+        {
+          "type": "workoutDefinition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
+  },
+  {
+    "type": ".pause",
+    "named": false
+  },
+  {
+    "type": ".reps",
+    "named": false
+  },
+  {
+    "type": ".rest",
+    "named": false
+  },
+  {
+    "type": ".sets",
+    "named": false
+  },
+  {
+    "type": "exercise",
+    "named": false
+  },
+  {
+    "type": "floatNumber",
+    "named": true
+  },
+  {
+    "type": "plan",
+    "named": false
+  },
+  {
+    "type": "stringParam",
+    "named": true
+  },
+  {
+    "type": "timeUnit",
+    "named": true
+  },
+  {
+    "type": "workout",
+    "named": false
+  },
+  {
+    "type": "{",
+    "named": false
+  },
+  {
+    "type": "}",
+    "named": false
+  }
+]
