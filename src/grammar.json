@@ -115,8 +115,16 @@
           "value": "group"
         },
         {
-          "type": "SYMBOL",
-          "name": "title"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "title"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "CHOICE",

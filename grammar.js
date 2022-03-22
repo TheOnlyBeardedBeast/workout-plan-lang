@@ -28,7 +28,7 @@ module.exports = grammar({
     exerciseGroup: ($) =>
       seq(
         "group",
-        $.title,
+        optional($.title),
         optional($.description),
         optional($.superset),
         "{",
