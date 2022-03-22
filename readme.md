@@ -6,7 +6,7 @@ A grammar and parser to describe a workout plan.
 
 ## Structure
 
-On the top level we have a `plan` which encapsulates multiple `workout`s. Every workout can have multiple `group`s or `exercise`s. Groups are optional, they can be used to highlight exercises by body parts, muscle groups... or you can mark a `group` as a `superset`. 
+On the top level we have a `plan` which encapsulates multiple `workout`s. Every workout can have multiple `group`s or `exercise`s. Groups are optional, they can be used to highlight exercises by body parts, muscle groups... or you can mark a `group` as a `superset`, for a `superset` you can define a number of sets which indicates how many time you need to repeat the whole `group` (exercise sequence) (the application should remove specified sets from each exercise if the group was marked as a superset). 
 
 ## Example
 
