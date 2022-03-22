@@ -1,39 +1,60 @@
 module.exports = grammar({
-  name: "workout",
+  name: "workoutLang",
 
   rules: {
-    // TODO: add the actual grammar rules
-    source_file: ($) => repeat($._definition),
+    source_file: ($) => optional($.workoutPlanDefinition),
 
-    _definition: ($) => choice($.workoutPlanDefinition),
-
+    // workoutplan (group of workouts)
     workoutPlanDefinition: ($) =>
-      seq("plan", $.title, "{", repeat($.workoutDefinition), "}"),
+      seq(
+        "plan",
+        $.title,
+        optional($.description),
+        "{",
+        repeat($.workoutDefinition),
+        "}"
+      ),
 
+    // workout
     workoutDefinition: ($) =>
-      seq("workout", $.title, seq("{", repeat($.exercise), "}")),
+      seq(
+        "workout",
+        $.title,
+        optional($.description),
+        seq("{", repeat(choice($.exercise, $.exerciseGroup)), "}")
+      ),
 
+    exerciseGroup: ($) =>
+      seq(
+        "group",
+        $.title,
+        optional($.description),
+        "{",
+        repeat($.exercise),
+        "}"
+      ),
+
+    // exercise
+    sets: ($) => seq(".sets", "(", /\d+/, ")"),
+    reps: ($) => seq(".reps", "(", /\d+/, optional($.timeUnit), ")"),
+    pause: ($) => seq(".pause", "(", $.floatNumber, $.timeUnit, ")"),
+    rest: ($) => seq(".rest", "(", $.floatNumber, $.timeUnit, ")"),
     exercise: ($) =>
       seq(
         "exercise",
         $.title,
+        optional($.description),
         optional($.sets),
         optional($.reps),
         optional($.pause),
         optional($.rest)
       ),
 
-    sets: ($) => seq(".sets", "(", /\d+/, ")"),
-    reps: ($) => seq(".reps", "(", /\d+/, ")"),
-    pause: ($) => seq(".pause", "(", $.floatNumber, $.timeUnit, ")"),
-    rest: ($) => seq(".rest", "(", $.floatNumber, $.timeUnit, ")"),
-
+    // shared
     title: ($) => seq("(", $.stringParam, ")"),
-
     stringParam: ($) => /["]((\w)|(\s))+["]/,
-
-    floatNumber: ($) => /((([1-9])|([1-9][0-9]+)|[0])?([.][0-9]*)?|[.][0-9]+)/,
-
+    floatNumber: ($) => /((([1-9]*[0-9])|[0-9])?([.][0-9]*)?|[.][0-9]+)/,
     timeUnit: ($) => /[h]|[m]|[s]/,
+    description: ($) => seq(".description", $.title),
   },
 });

@@ -1,9 +1,15 @@
-plan("workout plan is awsome"){
-    workout("title"){
-        exercise("title").sets(4).reps(1)
+plan("workout plan is awsome").description("You should focus"){
+    workout("title").description("be hard on yourself"){
+        exercise("title").description("45 deg").sets(4).reps(1)
         exercise("title").sets(4).reps(1).pause(0.5m).rest(1h)
         exercise("title").sets(4).pause(0.5m).rest(1h)
         exercise("title")
+        group("title").description("All these are for the chest"){
+            exercise("title").sets(4).reps(1)
+            exercise("title").sets(4).reps(30s).pause(0.5m).rest(1h)
+            exercise("title").sets(4).pause(0.5m).rest(1h)
+            exercise("title")
+        }
     }
     workout("title"){}
 }
