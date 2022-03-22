@@ -131,6 +131,18 @@
           ]
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "superset"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": "{"
         },
@@ -147,6 +159,40 @@
         }
       ]
     },
+    "superset": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ".superset"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "("
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "integerNumber"
+                },
+                {
+                  "type": "STRING",
+                  "value": ")"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
     "sets": {
       "type": "SEQ",
       "members": [
@@ -159,8 +205,8 @@
           "value": "("
         },
         {
-          "type": "PATTERN",
-          "value": "\\d+"
+          "type": "SYMBOL",
+          "name": "integerNumber"
         },
         {
           "type": "STRING",
@@ -180,8 +226,8 @@
           "value": "("
         },
         {
-          "type": "PATTERN",
-          "value": "\\d+"
+          "type": "SYMBOL",
+          "name": "integerNumber"
         },
         {
           "type": "CHOICE",
@@ -340,6 +386,10 @@
           "value": ")"
         }
       ]
+    },
+    "integerNumber": {
+      "type": "PATTERN",
+      "value": "\\d+"
     },
     "stringParam": {
       "type": "PATTERN",

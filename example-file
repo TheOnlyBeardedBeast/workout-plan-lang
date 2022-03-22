@@ -10,6 +10,18 @@ plan("workout plan is awsome").description("You should focus"){
             exercise("title").sets(4).pause(0.5m).rest(1h)
             exercise("title")
         }
+        group("title").superset{
+            exercise("title").sets(4).reps(1)
+            exercise("title").sets(4).reps(30s).pause(0.5m).rest(1h)
+            exercise("title").sets(4).pause(0.5m).rest(1h)
+            exercise("title")
+        }
+        group("title").superset(3){
+            exercise("title").reps(10)
+            exercise("title").reps(30s).pause(0.5m).rest(1h)
+            exercise("title").pause(0.5m).rest(1h)
+            exercise("title")
+        }
     }
     workout("title"){}
 }

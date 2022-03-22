@@ -66,6 +66,10 @@
           "named": true
         },
         {
+          "type": "superset",
+          "named": true
+        },
+        {
           "type": "title",
           "named": true
         }
@@ -96,9 +100,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": false,
+      "multiple": true,
+      "required": true,
       "types": [
+        {
+          "type": "integerNumber",
+          "named": true
+        },
         {
           "type": "timeUnit",
           "named": true
@@ -128,7 +136,17 @@
   {
     "type": "sets",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "integerNumber",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "source_file",
@@ -140,6 +158,21 @@
       "types": [
         {
           "type": "workoutPlanDefinition",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "superset",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "integerNumber",
           "named": true
         }
       ]
@@ -239,6 +272,10 @@
     "named": false
   },
   {
+    "type": ".superset",
+    "named": false
+  },
+  {
     "type": "exercise",
     "named": false
   },
@@ -249,6 +286,10 @@
   {
     "type": "group",
     "named": false
+  },
+  {
+    "type": "integerNumber",
+    "named": true
   },
   {
     "type": "plan",

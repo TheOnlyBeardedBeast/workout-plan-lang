@@ -24,19 +24,23 @@ module.exports = grammar({
         seq("{", repeat(choice($.exercise, $.exerciseGroup)), "}")
       ),
 
+    // exercise group | superset
     exerciseGroup: ($) =>
       seq(
         "group",
         $.title,
         optional($.description),
+        optional($.superset),
         "{",
         repeat($.exercise),
         "}"
       ),
 
+    superset: ($) => seq(".superset", optional(seq("(", $.integerNumber, ")"))),
+
     // exercise
-    sets: ($) => seq(".sets", "(", /\d+/, ")"),
-    reps: ($) => seq(".reps", "(", /\d+/, optional($.timeUnit), ")"),
+    sets: ($) => seq(".sets", "(", $.integerNumber, ")"),
+    reps: ($) => seq(".reps", "(", $.integerNumber, optional($.timeUnit), ")"),
     pause: ($) => seq(".pause", "(", $.floatNumber, $.timeUnit, ")"),
     rest: ($) => seq(".rest", "(", $.floatNumber, $.timeUnit, ")"),
     exercise: ($) =>
@@ -52,6 +56,7 @@ module.exports = grammar({
 
     // shared
     title: ($) => seq("(", $.stringParam, ")"),
+    integerNumber: ($) => /\d+/,
     stringParam: ($) => /["]((\w)|(\s))+["]/,
     floatNumber: ($) => /((([1-9]*[0-9])|[0-9])?([.][0-9]*)?|[.][0-9]+)/,
     timeUnit: ($) => /[h]|[m]|[s]/,
