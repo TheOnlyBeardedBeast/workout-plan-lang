@@ -28,4 +28,4 @@ plan("My workout plan").description("2 day upper and lower split"){
         exercise("Calf raises").sets(3).reps(10).pause(1m).rest(2m)
         exercise("Overhead tricep extensions").sets(3).reps(10).pause(1m).rest(2m)
     }
-}
+}.meta("created":"today").meta("creator":"TheDev")

@@ -77,6 +77,21 @@
     }
   },
   {
+    "type": "meta",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "stringParam",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "pause",
     "named": true,
     "fields": {},
@@ -233,6 +248,10 @@
           "named": true
         },
         {
+          "type": "meta",
+          "named": true
+        },
+        {
           "type": "title",
           "named": true
         },
@@ -256,6 +275,10 @@
     "named": false
   },
   {
+    "type": ".meta",
+    "named": false
+  },
+  {
     "type": ".pause",
     "named": false
   },
@@ -273,6 +296,10 @@
   },
   {
     "type": ".superset",
+    "named": false
+  },
+  {
+    "type": ":",
     "named": false
   },
   {

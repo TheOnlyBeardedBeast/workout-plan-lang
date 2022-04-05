@@ -12,7 +12,8 @@ module.exports = grammar({
         optional($.description),
         "{",
         repeat($.workoutDefinition),
-        "}"
+        "}",
+        repeat($.meta)
       ),
 
     // workout
@@ -53,6 +54,8 @@ module.exports = grammar({
         optional($.pause),
         optional($.rest)
       ),
+
+    meta: ($) => seq(".meta", "(", $.stringParam, ":", $.stringParam, ")"),
 
     // shared
     title: ($) => seq("(", $.stringParam, ")"),
