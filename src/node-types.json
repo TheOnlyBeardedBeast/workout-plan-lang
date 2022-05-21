@@ -79,16 +79,27 @@
   {
     "type": "meta",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "stringParam",
-          "named": true
-        }
-      ]
+    "fields": {
+      "metaKey": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "stringParam",
+            "named": true
+          }
+        ]
+      },
+      "metaValue": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "stringParam",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -172,7 +183,7 @@
       "required": false,
       "types": [
         {
-          "type": "workoutPlanDefinition",
+          "type": "workoutPlan",
           "named": true
         }
       ]
@@ -209,7 +220,7 @@
     }
   },
   {
-    "type": "workoutDefinition",
+    "type": "workout",
     "named": true,
     "fields": {},
     "children": {
@@ -229,6 +240,10 @@
           "named": true
         },
         {
+          "type": "sets",
+          "named": true
+        },
+        {
           "type": "title",
           "named": true
         }
@@ -236,7 +251,7 @@
     }
   },
   {
-    "type": "workoutPlanDefinition",
+    "type": "workoutPlan",
     "named": true,
     "fields": {},
     "children": {
@@ -256,19 +271,11 @@
           "named": true
         },
         {
-          "type": "workoutDefinition",
+          "type": "workout",
           "named": true
         }
       ]
     }
-  },
-  {
-    "type": "(",
-    "named": false
-  },
-  {
-    "type": ")",
-    "named": false
   },
   {
     "type": ".description",
@@ -296,10 +303,6 @@
   },
   {
     "type": ".superset",
-    "named": false
-  },
-  {
-    "type": ":",
     "named": false
   },
   {
@@ -332,14 +335,6 @@
   },
   {
     "type": "workout",
-    "named": false
-  },
-  {
-    "type": "{",
-    "named": false
-  },
-  {
-    "type": "}",
     "named": false
   }
 ]

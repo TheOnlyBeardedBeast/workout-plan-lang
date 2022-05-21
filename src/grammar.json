@@ -6,23 +6,28 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "workoutPlanDefinition"
+          "name": "workoutPlan"
         },
         {
           "type": "BLANK"
         }
       ]
     },
-    "workoutPlanDefinition": {
+    "workoutPlan": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "plan"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "title"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "plan"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "title"
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -37,19 +42,19 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "{"
+          "type": "SYMBOL",
+          "name": "_contextStart"
         },
         {
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "workoutDefinition"
+            "name": "workout"
           }
         },
         {
-          "type": "STRING",
-          "value": "}"
+          "type": "SYMBOL",
+          "name": "_contextEnd"
         },
         {
           "type": "REPEAT",
@@ -60,7 +65,7 @@
         }
       ]
     },
-    "workoutDefinition": {
+    "workout": {
       "type": "SEQ",
       "members": [
         {
@@ -70,6 +75,18 @@
         {
           "type": "SYMBOL",
           "name": "title"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "sets"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "CHOICE",
@@ -87,8 +104,8 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "STRING",
-              "value": "{"
+              "type": "SYMBOL",
+              "name": "_contextStart"
             },
             {
               "type": "REPEAT",
@@ -107,8 +124,8 @@
               }
             },
             {
-              "type": "STRING",
-              "value": "}"
+              "type": "SYMBOL",
+              "name": "_contextEnd"
             }
           ]
         }
@@ -158,8 +175,8 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": "{"
+          "type": "SYMBOL",
+          "name": "_contextStart"
         },
         {
           "type": "REPEAT",
@@ -169,8 +186,8 @@
           }
         },
         {
-          "type": "STRING",
-          "value": "}"
+          "type": "SYMBOL",
+          "name": "_contextEnd"
         }
       ]
     },
@@ -188,16 +205,16 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "STRING",
-                  "value": "("
+                  "type": "SYMBOL",
+                  "name": "_valueStart"
                 },
                 {
                   "type": "SYMBOL",
                   "name": "integerNumber"
                 },
                 {
-                  "type": "STRING",
-                  "value": ")"
+                  "type": "SYMBOL",
+                  "name": "_valueEnd"
                 }
               ]
             },
@@ -216,16 +233,16 @@
           "value": ".sets"
         },
         {
-          "type": "STRING",
-          "value": "("
+          "type": "SYMBOL",
+          "name": "_valueStart"
         },
         {
           "type": "SYMBOL",
           "name": "integerNumber"
         },
         {
-          "type": "STRING",
-          "value": ")"
+          "type": "SYMBOL",
+          "name": "_valueEnd"
         }
       ]
     },
@@ -237,8 +254,8 @@
           "value": ".reps"
         },
         {
-          "type": "STRING",
-          "value": "("
+          "type": "SYMBOL",
+          "name": "_valueStart"
         },
         {
           "type": "SYMBOL",
@@ -257,8 +274,8 @@
           ]
         },
         {
-          "type": "STRING",
-          "value": ")"
+          "type": "SYMBOL",
+          "name": "_valueEnd"
         }
       ]
     },
@@ -270,8 +287,8 @@
           "value": ".pause"
         },
         {
-          "type": "STRING",
-          "value": "("
+          "type": "SYMBOL",
+          "name": "_valueStart"
         },
         {
           "type": "SYMBOL",
@@ -282,8 +299,8 @@
           "name": "timeUnit"
         },
         {
-          "type": "STRING",
-          "value": ")"
+          "type": "SYMBOL",
+          "name": "_valueEnd"
         }
       ]
     },
@@ -295,8 +312,8 @@
           "value": ".rest"
         },
         {
-          "type": "STRING",
-          "value": "("
+          "type": "SYMBOL",
+          "name": "_valueStart"
         },
         {
           "type": "SYMBOL",
@@ -307,8 +324,8 @@
           "name": "timeUnit"
         },
         {
-          "type": "STRING",
-          "value": ")"
+          "type": "SYMBOL",
+          "name": "_valueEnd"
         }
       ]
     },
@@ -324,16 +341,20 @@
           "name": "title"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "description"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "PREC",
+          "value": 1,
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "description"
+              },
+              {
+                "type": "BLANK"
+              }
+            ]
+          }
         },
         {
           "type": "CHOICE",
@@ -393,24 +414,45 @@
           "value": ".meta"
         },
         {
-          "type": "STRING",
-          "value": "("
+          "type": "SYMBOL",
+          "name": "_valueStart"
+        },
+        {
+          "type": "FIELD",
+          "name": "metaKey",
+          "content": {
+            "type": "SYMBOL",
+            "name": "stringParam"
+          }
         },
         {
           "type": "SYMBOL",
-          "name": "stringParam"
+          "name": "_metaDivider"
         },
         {
-          "type": "STRING",
-          "value": ":"
+          "type": "FIELD",
+          "name": "metaValue",
+          "content": {
+            "type": "SYMBOL",
+            "name": "stringParam"
+          }
         },
         {
           "type": "SYMBOL",
-          "name": "stringParam"
-        },
+          "name": "_valueEnd"
+        }
+      ]
+    },
+    "description": {
+      "type": "SEQ",
+      "members": [
         {
           "type": "STRING",
-          "value": ")"
+          "value": ".description"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "title"
         }
       ]
     },
@@ -418,16 +460,16 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "("
+          "type": "SYMBOL",
+          "name": "_valueStart"
         },
         {
           "type": "SYMBOL",
           "name": "stringParam"
         },
         {
-          "type": "STRING",
-          "value": ")"
+          "type": "SYMBOL",
+          "name": "_valueEnd"
         }
       ]
     },
@@ -445,20 +487,27 @@
     },
     "timeUnit": {
       "type": "PATTERN",
-      "value": "[h]|[m]|[s]"
+      "value": "([h]|[m]|[s])"
     },
-    "description": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": ".description"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "title"
-        }
-      ]
+    "_contextStart": {
+      "type": "STRING",
+      "value": "{"
+    },
+    "_contextEnd": {
+      "type": "STRING",
+      "value": "}"
+    },
+    "_valueStart": {
+      "type": "STRING",
+      "value": "("
+    },
+    "_valueEnd": {
+      "type": "STRING",
+      "value": ")"
+    },
+    "_metaDivider": {
+      "type": "STRING",
+      "value": ":"
     }
   },
   "extras": [

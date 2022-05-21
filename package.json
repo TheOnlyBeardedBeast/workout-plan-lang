@@ -5,7 +5,8 @@
   "main": "bindings/node",
   "scripts": {
     "test": "tree-sitter parse example-file",
-    "gen": "tree-sitter generate"
+    "gen": "tree-sitter generate",
+    "build": "tree-sitter generate && yarn add tree-sitter"
   },
   "author": "polak@cngroup.dk",
   "license": "ISC",

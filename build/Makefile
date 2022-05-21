@@ -327,7 +327,7 @@ endif
 
 quiet_cmd_regen_makefile = ACTION Regenerating $@
 cmd_regen_makefile = cd $(srcdir); /Users/polak/.nvm/versions/node/v16.13.1/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/Users/polak/Library/Caches/node-gyp/16.13.1" "-Dnode_gyp_dir=/Users/polak/.nvm/versions/node/v16.13.1/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=/Users/polak/Library/Caches/node-gyp/16.13.1/<(target_arch)/node.lib" "-Dmodule_root_dir=/Users/polak/projects/personal/tree-sitter-workout" "-Dnode_engine=v8" "--depth=." "-Goutput_dir=." "--generator-output=build" -I/Users/polak/projects/personal/tree-sitter-workout/build/config.gypi -I/Users/polak/.nvm/versions/node/v16.13.1/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/Users/polak/Library/Caches/node-gyp/16.13.1/include/node/common.gypi "--toplevel-dir=." binding.gyp
-Makefile: $(srcdir)/build/config.gypi $(srcdir)/../../../Library/Caches/node-gyp/16.13.1/include/node/common.gypi $(srcdir)/../../../.nvm/versions/node/v16.13.1/lib/node_modules/npm/node_modules/node-gyp/addon.gypi $(srcdir)/binding.gyp
+Makefile: $(srcdir)/../../../Library/Caches/node-gyp/16.13.1/include/node/common.gypi $(srcdir)/binding.gyp $(srcdir)/../../../.nvm/versions/node/v16.13.1/lib/node_modules/npm/node_modules/node-gyp/addon.gypi $(srcdir)/build/config.gypi
 	$(call do_cmd,regen_makefile)
 
 # "all" is a concatenation of the "all" targets from all the included

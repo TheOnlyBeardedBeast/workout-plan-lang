@@ -351,7 +351,7 @@
     "strict_ssl": "true",
     "save_prefix": "^",
     "version_git_message": "v%s",
-    "user_agent": "yarn/1.22.4 npm/? node/v16.13.1 darwin x64",
+    "user_agent": "yarn/1.22.18 npm/? node/v16.13.1 darwin x64",
     "ignore_scripts": "",
     "version_git_sign": "",
     "ignore_optional": "",

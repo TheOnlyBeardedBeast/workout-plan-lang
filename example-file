@@ -1,5 +1,5 @@
 plan("My workout plan").description("2 day upper and lower split"){
-    workout("Upper body").description("be hard on yourself"){
+    workout("Upper body").sets(2).description("be hard on yourself"){
         group("Preworkout"){
             exercise("Stair master").sets(1).reps(10m).rest(2m)
             exercise("Jumping rope").sets(4).reps(3m).pause(30s).rest(2m)
